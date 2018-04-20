@@ -11,6 +11,7 @@ import java.util.Arrays;
  * 4.LIS问题
  * 5.LCS问题
  * 6.背包问题
+ * 7.最优编辑问题
  * @author caihanbin
  *
  */
@@ -95,8 +96,6 @@ public class Practice1 {
 		
 		
 	}
-	
-	
 	/**
 	 * LCS
 	 * @param strA
@@ -157,6 +156,65 @@ public class Practice1 {
 		}
 		
 		return dp[n][cap];
+    }
+	/**
+	 * 矩阵最短路径问题
+	 * @param map
+	 * @param n
+	 * @param m
+	 * @return
+	 */
+	public int getMin(int[][] map, int n, int m) {
+        // write code here
+         int[][] dp=new int[n][m];
+		 //初始化行
+		 dp[0][0]=map[0][0];
+		 for(int i=1;i<m;i++){
+			 dp[0][i]=dp[0][i-1]+map[0][i];
+		 }
+		 for(int j=1;j<n;j++){
+			 dp[j][0]=dp[j-1][0]+map[j][0];
+		 }
+		 for(int i=1;i<n;i++){
+			 for(int j=1;j<m;j++){
+				 dp[i][j]=Math.min(dp[i-1][j]+map[i][j], dp[i][j-1]+map[i][j]);
+			 }
+		 }
+		 return dp[n-1][m-1];
+    }
+	/**
+	 * 最优编辑问题
+	 * @param A
+	 * @param n
+	 * @param B
+	 * @param m
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @return
+	 */
+	public int findMinCost(String A, int n, String B, int m, int c0, int c1, int c2) {
+        // write code here
+		int[][] dp=new int[n+1][m+1];
+		for(int i=0;i<n+1;i++){
+			dp[i][0]=c1*i;
+		}
+		for(int j=1;j<m+1;j++){
+			dp[0][j]=c0*j;
+		}
+		char[] arrA=A.toCharArray();
+		char[] arrB=B.toCharArray();
+		for(int i=1;i<n+1;i++){
+			for(int j=1;j<m+1;j++){
+				if(arrA[i-1]==arrB[j-1]){
+					dp[i][j]=dp[i-1][j-1];
+				}else{
+					dp[i][j]=Math.min(Math.min(dp[i-1][j]+c1,dp[i][j-1]+c0),dp[i-1][j-1]+c2);
+				}
+			}
+		}
+		
+		return dp[n][m];
     }
 	
 
