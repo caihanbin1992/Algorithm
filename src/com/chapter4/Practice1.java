@@ -17,8 +17,8 @@ import java.util.Arrays;
 public class Practice1 { 
 	
 	public static void main(String[] args){
-		String A="ABCCDA";
-		String B="BCCABA";
+//		String A="ABCCDA";
+//		String B="BCCABA";
 		//int result=lcs_length(A,B);
 		//System.out.println(result);
 		int[] arr=new int[]{2,3,4,8,9,1,2,3,4};
