@@ -1,7 +1,7 @@
 package com.chapter4;
 
 /**
- * ¾Ö¸ÖÌõÎÊÌâ
+ * ç»å…¸åŠ¨æ€è§„åˆ’é—®é¢˜-é”¯é’¢æ¡é—®é¢˜
  * @author caihanbin
  *
  */
@@ -15,7 +15,7 @@ public class Practice2 {
 	}
 	
 	/**
-	 * ×Ô¶¥ÏòÏÂµİ¹éÊµÏÖ
+	 * é€’å½’æ±‚è§£
 	 * @param p
 	 * @param n
 	 * @return
@@ -33,7 +33,7 @@ public class Practice2 {
 
 	
 	/**
-	 * ´ø±¸ÍüµÄ×Ô¶¥ÏòÏÂ·¨
+	 * å¸¦å¤‡å¿˜çš„æš´åŠ›æœç´¢
 	 * @param p
 	 * @param n
 	 * @return
@@ -66,7 +66,7 @@ public class Practice2 {
 		
 	}
 	/**
-	 * ×Ôµ×¶øÉÏ¶¯Ì¬¹æ»®
+	 * è‡ªåº•å‘ä¸Šçš„åŠ¨æ€è§„åˆ’æ–¹æ³•
 	 * @param p
 	 * @param n
 	 * @return
@@ -75,9 +75,9 @@ public class Practice2 {
 		
 		int[] s=new int[n+1];
 		int[] dp=new int[n+1];
-		//³õÊ¼»¯µÚÒ»Ïî
+		//åˆå§‹åŒ–
 		dp[0]=0;
-		//¼ÆËãdp±í
+		//
 		for(int i=1;i<dp.length;i++){
 			int q=-1;
 			for(int j=0;j<i;j++){
@@ -89,7 +89,7 @@ public class Practice2 {
 			}
 			dp[i]=q;
 		}
-		//·µ»Ø×îºóÒ»Ïî
+		//è¿”å›æœ€å¤§å€¼
 		return dp[n];
 	}
 

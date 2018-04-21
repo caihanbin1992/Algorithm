@@ -4,14 +4,13 @@ import java.util.Arrays;
 
 /**
  * dynamic programming topics
- * ×Ü½áÎÊÌâÈçÏÂ£º
- * 1.ÕÒÁãÇ®ÎÊÌâ
- * 2.Ì¨½×ÎÊÌâ
- * 3.¾ØÕó×î¶ÌÂ·¾¶ÎÊÌâ
- * 4.LISÎÊÌâ
- * 5.LCSÎÊÌâ
- * 6.±³°üÎÊÌâ
- * 7.×îÓÅ±à¼­ÎÊÌâ
+ * 1.ç¡¬å¸æ‰¾é›¶é—®é¢˜
+ * 2.ä¸Šæ¥¼æ¢¯é—®é¢˜
+ * 3.çŸ©é˜µæœ€çŸ­è·¯å¾„é—®é¢˜
+ * 4.LIS
+ * 5.LCS
+ * 6.èƒŒåŒ…é—®é¢˜
+ * 7.æœ€ä¼˜ç¼–è¾‘é—®é¢˜
  * @author caihanbin
  *
  */
@@ -28,7 +27,7 @@ public class Practice1 {
 	}
 	
 	/**
-	 * ÕÒÁãÇ®ÎÊÌâ
+	 * ç¡¬å¸æ‰¾é›¶é—®é¢˜
 	 * @param penny
 	 * @param n
 	 * @param aim
@@ -56,7 +55,7 @@ public class Practice1 {
 		 return dp[n-1][aim];
 	 }
 	/**
-	 * Çó½âÁ¬Ğø×î´óµİÔö×ÓÊıÁĞ LIS
+	 *  LIS
 	 * @param A
 	 */
 	public static int find_max_subArray(int[] A){
@@ -120,8 +119,6 @@ public class Practice1 {
 					dp[i][j]=dp[i-1][j-1]+1;
 				}else{
 					dp[i][j]=dp[i-1][j]>dp[i][j-1]?dp[i-1][j]:dp[i][j-1];
-					//Á¬Ğø¹«¹²£¬Çó³ödpÖĞµÄ×î´óÖµ
-					//dp[i][j]=0;
 				}
 				
 			}
@@ -130,11 +127,11 @@ public class Practice1 {
 		
 	}
 	/**
-	 * ±³°üÎÊÌâ
-	 * @param w µ¥¼şÖØÁ¿
-	 * @param v ¶ÔÓ¦¼ÛÖµ
-	 * @param n ÊıÁ¿
-	 * @param cap ±³°üÖØÁ¿ÒªÇó
+	 * èƒŒåŒ…é—®é¢˜
+	 * @param w
+	 * @param v
+	 * @param n
+	 * @param cap
 	 * @return
 	 */
 	public int maxValue(int[] w, int[] v, int n, int cap) {
@@ -158,7 +155,7 @@ public class Practice1 {
 		return dp[n][cap];
     }
 	/**
-	 * ¾ØÕó×î¶ÌÂ·¾¶ÎÊÌâ
+	 * çŸ©é˜µæœ€çŸ­è·¯å¾„é—®é¢˜
 	 * @param map
 	 * @param n
 	 * @param m
@@ -167,7 +164,7 @@ public class Practice1 {
 	public int getMin(int[][] map, int n, int m) {
         // write code here
          int[][] dp=new int[n][m];
-		 //³õÊ¼»¯ĞĞ
+		 //
 		 dp[0][0]=map[0][0];
 		 for(int i=1;i<m;i++){
 			 dp[0][i]=dp[0][i-1]+map[0][i];
@@ -183,14 +180,14 @@ public class Practice1 {
 		 return dp[n-1][m-1];
     }
 	/**
-	 * ×îÓÅ±à¼­ÎÊÌâ
+	 * æœ€ä¼˜ç¼–è¾‘é—®é¢˜
 	 * @param A
 	 * @param n
 	 * @param B
 	 * @param m
-	 * @param c0
-	 * @param c1
-	 * @param c2
+	 * @param c0 æ’å…¥
+	 * @param c1 åˆ é™¤
+	 * @param c2 æ›¿æ¢
 	 * @return
 	 */
 	public int findMinCost(String A, int n, String B, int m, int c0, int c1, int c2) {
