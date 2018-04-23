@@ -22,6 +22,7 @@ public class Stack3 {
 		 return A1;
 		 // write code here
 	  }
+	 
 	 //递归函数1：将stack的栈底元素返回并移除
 	 public static int getAndRemoveLastElement(Stack<Integer> stack){
 		 int result=stack.pop();
